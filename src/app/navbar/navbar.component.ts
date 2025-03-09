@@ -7,8 +7,17 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   title = "Shop"
+  search = "";
+
+  constructor(){
+    console.log(this.search.length);
+  }
 
   onInput(event: any){
     console.log(event.data);
+  }
+
+  checkDisability(){
+      return this.search === ""
   }
 }
