@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from '../models/product.model';
 
 @Component({
   selector: 'app-main-cards',
@@ -6,8 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-cards.component.css']
 })
 export class MainCardsComponent {
-  number   = []
-  products = [
+  number : number[]  = []
+  name : string = ""
+  count = 0;
+  counts: any = [];
+  names:any = []
+
+  onClickMe(){
+    this.count++;
+    this.counts.push(this.count)
+  }
+
+  products : Product[] = [
     {
       name : "Playstation",
       img: "../../assets/images/playstation.jpg",
@@ -25,8 +36,38 @@ export class MainCardsComponent {
       img: "../../assets/images/samsung_tv.avif",
       description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
       price: 130,
-    }
+    },
+    {
+      name : "Samsung TV",
+      img: "../../assets/images/samsung_tv.avif",
+      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      price: 130,
+    },
+    {
+      name : "Samsung TV",
+      img: "../../assets/images/samsung_tv.avif",
+      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      price: 130,
+    },
+    {
+      name : "Samsung TV",
+      img: "../../assets/images/samsung_tv.avif",
+      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      price: 130,
+    },
+    {
+      name : "Samsung TV",
+      img: "../../assets/images/samsung_tv.avif",
+      description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      price: 130,
+    },
   ];
 
+  // products : any = [];
+
+  onAddName(){
+    this.names.push(this.name);
+    console.log(this.name);
+  }
 
 }
