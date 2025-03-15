@@ -12,6 +12,31 @@ export class MainCardsComponent {
   count = 0;
   counts: any = [];
   names:any = []
+  private _search : string = "";
+
+  constructor(){
+    console.log(this._search);
+    
+  }
+  get search(){
+    return this._search;
+  }
+
+  get filteredProducts(){
+    if(this._search !== ""){
+      const filteredArr = this.products.filter((prod : Product) => {
+        return prod.name.toLowerCase().includes(this._search.toLowerCase());
+      });
+      return filteredArr;
+    }
+    
+    return this.products;
+  }
+
+  set search(value){
+    this._search = value;
+  }
+
 
   currDate = new Date();
 

@@ -7,13 +7,14 @@
   </p>
   <div class="collapse my-2" id="collapseExample">
     <div class="">
-      <input type="text" class="form-control">
+      <input [(ngModel)]="search" type="text" class="form-control">
     </div>
+    <!-- {{search}} -->
   </div>
   <div class="row g-3">
     <ng-container *ngIf="products.length > 0">
       <!-- <div *ngFor="let product of products | slice:1:2; let i =index" class="col-12 col-sm-6 col-md-4 col-lg-3"> -->
-      <div *ngFor="let product of products | expensive : 80 : 'desc'; let i =index" class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div *ngFor="let product of filteredProducts | expensive : 80 : 'desc'; let i =index" class="col-12 col-sm-6 col-md-4 col-lg-3">
         <!-- <div [ngStyle]="{'background-color':i%2 ===0 ? '#bab2b2': ''}" class="card h-100">  -->
         <div class="card h-100"> 
           <img style="height: 50%;" [src]="product.img" class="card-img-top" alt="Product Image">
