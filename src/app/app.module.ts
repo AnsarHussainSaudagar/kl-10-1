@@ -6,13 +6,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { MainCardsComponent } from './main-cards/main-cards.component';
 import { CustomPipePipe } from './custom-pipe.pipe';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     MainCardsComponent,
-    CustomPipePipe
+    CustomPipePipe,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

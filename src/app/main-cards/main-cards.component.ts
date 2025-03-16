@@ -11,7 +11,15 @@ export class MainCardsComponent {
   name : string = ""
   count = 0;
   counts: any = [];
-  names:any = []
+  names:any = [];
+
+  createObj : Product = {
+    name: '',
+    img: '../../assets/images/playstation.jpg',
+    description: '',
+    price: 0
+  };
+
   private _search : string = "";
 
   constructor(){
@@ -22,22 +30,25 @@ export class MainCardsComponent {
     return this._search;
   }
 
-  get filteredProducts(){
+  get products(){
     if(this._search !== ""){
-      const filteredArr = this.products.filter((prod : Product) => {
+      const filteredArr = this._products.filter((prod : Product) => {
         return prod.name.toLowerCase().includes(this._search.toLowerCase());
       });
       return filteredArr;
     }
     
-    return this.products;
+    return this._products;
+  }
+
+  set products(products){
+    this._products = products;
   }
 
   set search(value){
     this._search = value;
   }
-
-
+  
   currDate = new Date();
 
   onClickMe(){
@@ -45,7 +56,7 @@ export class MainCardsComponent {
     this.counts.push(this.count)
   }
 
-  products : Product[] = [
+  private _products : Product[] = [
     {
       name : "Playstation",
       img: "../../assets/images/playstation.jpg",
@@ -95,6 +106,10 @@ export class MainCardsComponent {
   onAddName(){
     this.names.push(this.name);
     console.log(this.name);
+  }
+  
+  onSubmit(){
+    this.products.push(this.createObj);
   }
 
 }
