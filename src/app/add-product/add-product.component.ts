@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Product } from '../models/product.model';
 
 @Component({
@@ -13,7 +13,10 @@ export class AddProductComponent {
     description: '',
     price: 0
   };
+
+  @Output() dataEmitter = new EventEmitter();
+
   onSubmit(){
-    // this.products.push(this.createObj);
+    this.dataEmitter.emit(this.createObj);
   }
 }

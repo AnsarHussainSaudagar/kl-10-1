@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<app-add-product></app-add-product>
+<app-add-product (dataEmitter)="getData($event)" ></app-add-product>
 <app-main-cards [_products]="mainArr" ></app-main-cards>
 
 

@@ -1,21 +1,23 @@
-<p class="d-inline-flex gap-1 my-2">
-    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-        aria-controls="collapseExample">
-        Search Collapse
-    </a>
-</p>
 
-<div class="collapse my-2" id="collapseExample">
-    <div class="card card-body">
-        <label for="product-name">Name</label>
-        <input id="product-name" [(ngModel)]="createObj['name']" name="name" type="text" class="form-control">
+<div class="container">
+    <p class="d-inline-flex gap-1 my-2">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+            aria-controls="collapseExample">
+            Search Collapse
+        </a>
+    </p>
     
-        <label for="product-description">description</label>
-        <input id="product-description" [(ngModel)]="createObj['description']" name="description" type="text"
-            class="form-control">
-        <label for="product-price">Price</label>
-        <input id="product-price" [(ngModel)]="createObj['price']" name="price" type="number" class="form-control">
-        <button (click)="onSubmit()" class="btn btn-success">Submit</button>
-        <!-- {{search}} -->
+    <div class="collapse my-2" id="collapseExample">
+        <div class="card card-body">
+            <label for="product-name">Name</label>
+            <input id="product-name" [(ngModel)]="createObj['name']" name="name" type="text" class="form-control">
+        
+            <label for="product-description">description</label>
+            <input id="product-description" [(ngModel)]="createObj['description']" name="description" type="text"
+                class="form-control">
+            <label for="product-price">Price</label>
+            <input id="product-price" [(ngModel)]="createObj['price']" name="price" type="number" class="form-control">
+            <button (click)="onSubmit()" class="btn btn-success">Submit</button>
+        </div>
     </div>
 </div>

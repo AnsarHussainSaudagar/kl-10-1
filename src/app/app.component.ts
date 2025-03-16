@@ -67,6 +67,12 @@ export class AppComponent {
       price: 130.34523,
     },
   ];
+
+  getData(productData : Product){
+    // console.log(event);
+    this.mainArr.push(productData)
+    
+  }
 }
 
 
