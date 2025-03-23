@@ -14,7 +14,6 @@ export class MainCardsComponent {
   counts: any = [];
   names:any = [];
 
-  // @Input('productsData') _products!: Product[];
 
   createObj : Product = {
     name: '',
@@ -28,8 +27,15 @@ export class MainCardsComponent {
   products !: Product[];
 
   constructor(private dataService: DataService){
+    // console.log(`num = ${this.num}`);
     
     this.products = dataService.mainArr;
+  }
+  @Input('myNumber') num !: number;
+
+  ngOnInit(){
+    // console.log(`num in OnInit = ${this.num}`);
+    
   }
 
   get search(){
@@ -50,7 +56,7 @@ export class MainCardsComponent {
 
   onAddName(){
     this.names.push(this.name);
-    console.log(this.name);
+    // console.log(this.name);
   }
   
   onSubmit(){
@@ -59,7 +65,7 @@ export class MainCardsComponent {
 
   onClickAddToCart(){
     this.dataService.cartCount++;
-    console.log(this.dataService.cartCount);
+    // console.log(this.dataService.cartCount);
     
   }
 

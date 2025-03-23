@@ -12,23 +12,23 @@ export class NavbarComponent implements OnInit, DoCheck{
   cartCount !: number;
 
   ngOnChanges(){
-    console.log("On Changes");
+    // console.log("On Changes");
     
   }
 
   constructor(private dataService: DataService){
     this.cartCount = this.dataService.cartCount;
-    console.log("Constructor");
+    // console.log("Constructor");
     
   }
 
   ngOnInit(){
-    console.log("on init");
+    // console.log("on init");
     
   }
 
   ngDoCheck(){
-    console.log("Do Check");
+    // console.log("Do Check");
     this.cartCount = this.dataService.cartCount;
   }
 

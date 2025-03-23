@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { MainCardsComponent } from './main-cards/main-cards.component';
 import { CustomPipePipe } from './custom-pipe.pipe';
 import { AddProductComponent } from './add-product/add-product.component';
+import { HighlighDirective } from './highligh.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AddProductComponent } from './add-product/add-product.component';
     NavbarComponent,
     MainCardsComponent,
     CustomPipePipe,
-    AddProductComponent
+    AddProductComponent,
+    HighlighDirective
   ],
   imports: [
     BrowserModule,

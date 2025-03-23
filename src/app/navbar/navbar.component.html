@@ -1,4 +1,4 @@
-<nav style="background-color: rgb(42,85,229);" class="navbar navbar-expand-lg ">
+<nav style="background-color: #2a55e5;" class="navbar navbar-expand-lg ">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">{{title}}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,13 +7,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a appHighligh class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a appHighligh class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
             </a>
             <ul class="dropdown-menu">
@@ -33,7 +33,7 @@
           <button [disabled]="checkDisability()" class="btn btn-outline-success" type="submit">Search</button>
         </form>
 
-        <button type="button" class=" btn btn-primary position-relative">
+        <button appHighligh type="button" class=" btn btn-primary position-relative">
           Cart
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             {{cartCount}}
