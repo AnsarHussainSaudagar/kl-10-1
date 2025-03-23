@@ -10,7 +10,7 @@
             <p class="card-text">{{ product.description }}...</p>
             <p [ngClass]="{'expensive': product.price >= 100}" class="fw-bold">{{ product.price | currency: 'USD':
               'symbol' :'1.0-4' }}</p>
-            <a href="#" class="btn btn-primary mt-auto">Show details</a>
+            <a (click)="onClickAddToCart()" href="#" class="btn btn-primary mt-auto">Add To Cart</a>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Product } from '../models/product.model';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-add-product',
@@ -14,9 +15,12 @@ export class AddProductComponent {
     price: 0
   };
 
-  @Output('newProduct') dataEmitter = new EventEmitter();
+  constructor(private dataService: DataService){
+
+  }
 
   onSubmit(){
-    this.dataEmitter.emit(this.createObj);
+    this.dataService.mainArr.push(this.createObj);
+    console.log(this.dataService.mainArr);
   }
 }
