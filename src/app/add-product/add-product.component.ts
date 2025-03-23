@@ -14,7 +14,7 @@ export class AddProductComponent {
     price: 0
   };
 
-  @Output() dataEmitter = new EventEmitter();
+  @Output('newProduct') dataEmitter = new EventEmitter();
 
   onSubmit(){
     this.dataEmitter.emit(this.createObj);

@@ -13,7 +13,7 @@ export class MainCardsComponent {
   counts: any = [];
   names:any = [];
 
-  @Input() _products!: Product[];
+  @Input('productsData') _products!: Product[];
 
   createObj : Product = {
     name: '',
