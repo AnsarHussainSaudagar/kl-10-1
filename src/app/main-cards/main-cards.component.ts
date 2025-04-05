@@ -19,20 +19,20 @@ export class MainCardsComponent {
     name: '',
     img: '../../assets/images/playstation.jpg',
     description: '',
-    price: 0
+    price: 0,
   };
 
   private _search : string = "";
 
-  products : Product[] = [];
+  products : any = [];
 
   constructor(private dataService: DataService){
-    dataService.getData().subscribe({
-      next: (products: any) => {
-        this.products = products;
-        
-      }
-    })
+    this.products = dataService.dataSubject;
+    dataService.dataSubject.subscribe((d:any) => {
+      console.log(d);
+    });
+    
+    
   }
   @Input('myNumber') num !: number;
 
@@ -70,6 +70,10 @@ export class MainCardsComponent {
     this.dataService.cartCount++;
     // console.log(this.dataService.cartCount);
     
+  }
+
+  onClickDelete(id : any){
+      this.dataService.deleteProduct(id).subscribe();
   }
 
 }
