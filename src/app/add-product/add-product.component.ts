@@ -20,7 +20,10 @@ export class AddProductComponent {
   }
 
   onSubmit(){
-    this.dataService.mainArr.push(this.createObj);
-    console.log(this.dataService.mainArr);
+    this.dataService.postData(this.createObj).subscribe({
+      next: (data)=> {
+        console.log(data);
+      }
+    });
   }
 }

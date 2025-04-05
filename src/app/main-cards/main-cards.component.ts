@@ -24,12 +24,15 @@ export class MainCardsComponent {
 
   private _search : string = "";
 
-  products !: Product[];
+  products : Product[] = [];
 
   constructor(private dataService: DataService){
-    // console.log(`num = ${this.num}`);
-    
-    this.products = dataService.mainArr;
+    dataService.getData().subscribe({
+      next: (products: any) => {
+        this.products = products;
+        
+      }
+    })
   }
   @Input('myNumber') num !: number;
 

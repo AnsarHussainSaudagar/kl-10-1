@@ -8,6 +8,7 @@ import { MainCardsComponent } from './main-cards/main-cards.component';
 import { CustomPipePipe } from './custom-pipe.pipe';
 import { AddProductComponent } from './add-product/add-product.component';
 import { HighlighDirective } from './highligh.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HighlighDirective } from './highligh.directive';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
