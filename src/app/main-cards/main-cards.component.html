@@ -1,9 +1,10 @@
 
 <div class="container mt-4">
+  <app-add-product></app-add-product>
   <div class="row g-3">
     <ng-container *ngIf="products.length > 0">
 
-      <div *ngFor="let product of products; let i =index" class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div (click)="onClickProduct()" style="cursor: pointer;" *ngFor="let product of products; let i =index" class="col-12 col-sm-6 col-md-4 col-lg-3">
         <!-- {{product.id}} -->
         <div class="card h-100">
           <img style="height: 50%;" [src]="product.img" class="card-img-top" alt="Product Image">

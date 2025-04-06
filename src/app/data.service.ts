@@ -39,6 +39,10 @@ export class DataService {
     // })
   }
 
+  getSingleProduct(id : number){
+    return this.http.get(this.API_LINk + "/" + id);
+  }
+
   postData(product: Product) {
     return this.http.post(this.API_LINk, product);
   }

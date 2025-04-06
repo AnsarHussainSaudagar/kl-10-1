@@ -9,6 +9,15 @@ import { CustomPipePipe } from './custom-pipe.pipe';
 import { AddProductComponent } from './add-product/add-product.component';
 import { HighlighDirective } from './highligh.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ProductComponent } from './product/product.component';
+
+const appRoutes : Routes = [
+  {path: 'about-us', component: AboutUsComponent},
+  {path: '', component: MainCardsComponent},
+  {path: 'product', component: ProductComponent}
+];
 
 @NgModule({
   declarations: [
@@ -17,12 +26,16 @@ import { HttpClientModule } from '@angular/common/http';
     MainCardsComponent,
     CustomPipePipe,
     AddProductComponent,
-    HighlighDirective
+    HighlighDirective,
+    AboutUsComponent,
+    ProductComponent,
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

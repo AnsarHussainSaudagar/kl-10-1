@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { Product } from '../models/product.model';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-cards',
@@ -25,8 +26,13 @@ export class MainCardsComponent {
 
   products: any = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private router: Router) {}
 
+  onClickProduct(){
+    this.router.navigate(['product'])
+  }
+
+  
   // private fetchProducts(){
   //   this.dataService.getData()
   //   // .subscribe((data : any) => {
@@ -80,4 +86,6 @@ export class MainCardsComponent {
     this.dataService.cartCount++;
     // console.log(this.dataService.cartCount);
   }
+
+  
 }
