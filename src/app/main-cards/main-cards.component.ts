@@ -5,75 +5,79 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-main-cards',
   templateUrl: './main-cards.component.html',
-  styleUrls: ['./main-cards.component.css']
+  styleUrls: ['./main-cards.component.css'],
 })
 export class MainCardsComponent {
-  number : number[]  = []
-  name : string = ""
+  number: number[] = [];
+  name: string = '';
   count = 0;
   counts: any = [];
-  names:any = [];
+  names: any = [];
 
-
-  createObj : Product = {
+  createObj: Product = {
     name: '',
     img: '../../assets/images/playstation.jpg',
     description: '',
     price: 0,
   };
 
-  private _search : string = "";
+  private _search: string = '';
 
-  products : any = [];
+  products: any = [];
 
-  constructor(private dataService: DataService){
-    this.products = dataService.dataSubject;
-    dataService.dataSubject.subscribe((d:any) => {
-      console.log(d);
+  constructor(private dataService: DataService) {}
+
+  // private fetchProducts(){
+  //   this.dataService.getData()
+  //   // .subscribe((data : any) => {
+  //   //   this.products = data;
+  //   // });
+  // }
+
+  onClickDelete(id: any) {
+    this.dataService.deleteProduct(id).subscribe({
+      complete: () => {
+        this.dataService.getData();
+      },
     });
-    
-    
   }
-  @Input('myNumber') num !: number;
 
-  ngOnInit(){
+  @Input('myNumber') num!: number;
+
+  ngOnInit() {
     // console.log(`num in OnInit = ${this.num}`);
-    
+    this.dataService.getData();
+    this.dataService.productSubject.subscribe((products) => {
+      this.products = products;
+    });
   }
 
-  get search(){
+  get search() {
     return this._search;
   }
 
-
-  set search(value){
+  set search(value) {
     this._search = value;
   }
-  
+
   currDate = new Date();
 
-  onClickMe(){
+  onClickMe() {
     this.count++;
-    this.counts.push(this.count)
+    this.counts.push(this.count);
   }
 
-  onAddName(){
+  onAddName() {
     this.names.push(this.name);
     // console.log(this.name);
   }
-  
-  onSubmit(){
+
+  onSubmit() {
     this.products.push(this.createObj);
   }
 
-  onClickAddToCart(){
+  onClickAddToCart() {
     this.dataService.cartCount++;
     // console.log(this.dataService.cartCount);
-    
   }
-
-  onClickDelete(id : any){
-      this.dataService.deleteProduct(id).subscribe();
-  }
-
 }

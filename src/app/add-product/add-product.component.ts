@@ -21,8 +21,8 @@ export class AddProductComponent {
 
   onSubmit(){
     this.dataService.postData(this.createObj).subscribe({
-      next: (data)=> {
-        console.log(data);
+      complete: ()=> {
+        this.dataService.getData();
       }
     });
   }

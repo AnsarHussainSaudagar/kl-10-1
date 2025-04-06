@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from './models/product.model';
 import { HttpClient } from '@angular/common/http';
-import { filter, map, Subject } from 'rxjs';
+import { map, Subject, } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +10,11 @@ export class DataService {
   private API_LINk = 'https://67e7951320e3af747c3eedeb.mockapi.io/products';
   cartCount: number = 0;
 
-  dataSubject = new Subject();
-
   public mainArr: Product[] = [];
 
   constructor(private http: HttpClient) {}
+
+  public productSubject = new Subject();
 
   getData() {
     this.http.get(this.API_LINk).pipe(
@@ -28,10 +28,15 @@ export class DataService {
         });
 
         return mapData;
-      }),
-    ).subscribe((data) => {
-      this.dataSubject.next(data);
+      })
+    ).subscribe({
+      next: (products) => {
+        this.productSubject.next(products);
+      }
     })
+    // .subscribe((data) => {
+    //   this.dataSubject.next(data);
+    // })
   }
 
   postData(product: Product) {
