@@ -6,7 +6,10 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h3 class="card-title">{{product.name}}</h3>
+            <h3 class="card-title">{{product.name}} </h3>
+
+            <span *ngIf="isAvailable" class="badge badge-primary bg-primary">Is available</span>
+
             <p class="card-text text-muted">{{product.description}}</p>
             <h4 class="text-primary">{{product.price}}</h4>
             <button class="btn btn-success mt-3">Buy Now</button>

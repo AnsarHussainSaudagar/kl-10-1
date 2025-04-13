@@ -29,7 +29,7 @@ export class MainCardsComponent {
   constructor(private dataService: DataService, private router: Router) {}
 
   onClickProduct(product_id: any){
-    this.router.navigate(['product', product_id])
+    this.router.navigate(['product', product_id], {queryParams: {is_available: 1}})
   }
 
   

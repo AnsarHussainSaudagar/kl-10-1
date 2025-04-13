@@ -10,6 +10,8 @@ export class DataService {
   private API_LINk = 'https://67e7951320e3af747c3eedeb.mockapi.io/products';
   cartCount: number = 0;
 
+  isLoggedIn = true;
+
   public mainArr: Product[] = [];
 
   constructor(private http: HttpClient) {}
