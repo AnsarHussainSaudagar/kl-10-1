@@ -18,20 +18,7 @@ import { NotAllowedComponent } from './not-allowed/not-allowed.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PersonalDetailsComponent } from './personal-details/personal-details.component';
 import { AddressesComponent } from './addresses/addresses.component';
-
-const appRoutes : Routes = [
-  {path: 'about-us', component: AboutUsComponent, title: 'About Us', canActivate: [authGuard]},
-  {path: '', component: MainCardsComponent, title: "Home"},
-  {path: 'product/:product_id', component: ProductComponent, title: "Product"},
-  {path: 'my-profile', component: MyProfileComponent, canActivate: [authGuard], 
-    children: [
-    {path: 'personal-details', component: PersonalDetailsComponent},
-    {path: 'addresses', component: AddressesComponent},
-  ]},
-  {path: 'not-allowed', component: NotAllowedComponent},
-  {path: 'not-found', component: NotFoundComponent},
-  {path: "**", redirectTo: 'not-found'}
-];
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -54,7 +41,8 @@ const appRoutes : Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
