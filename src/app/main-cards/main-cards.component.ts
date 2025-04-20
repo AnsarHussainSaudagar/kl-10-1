@@ -40,7 +40,8 @@ export class MainCardsComponent {
   //   // });
   // }
 
-  onClickDelete(id: any) {
+  onClickDelete(id: any, e: any) {
+    e.preventDefault()
     this.dataService.deleteProduct(id).subscribe({
       complete: () => {
         this.dataService.getData();

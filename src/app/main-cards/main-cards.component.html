@@ -13,12 +13,13 @@
             <p [ngClass]="{'expensive': product.price >= 100}" class="fw-bold">{{ product.price | currency: 'INR':
               'symbol' :'1.0-4' }}</p>
             <a (click)="onClickAddToCart()" href="#" class="btn btn-primary mt-auto">Add To Cart</a>
-            <a (click)="onClickDelete(product.id)" href="#" class="btn btn-danger mt-auto">Delete Product</a>
+            <!-- <a (click)="onClickDelete(product.id)" href="#" class="btn btn-danger mt-auto">Delete Product</a> -->
+            <button (click)="onClickDelete(product.id, $event)" href="#" class="btn btn-danger mt-auto">Delete Product</button>
           </div>
         </div>
       </div>
     </ng-container>
-    <ng-container *ngIf="products.length === 0">
+    \<ng-container *ngIf="products.length === 0">
       <h1>Sorry products are currently unavailable</h1>
     </ng-container>
   </div>
